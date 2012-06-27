@@ -26,6 +26,7 @@ Options are optional, and set automatically when given to the validator
         dateFormat: 'mdy' // provide in what format the date should be validated on.
     };
     
+<b>dateFormat</b> should only contain "m", "d" and/or "y" for validation. They represent month/day/year.    
 <h3>HTML</h3>
 
 The HTML required data-validate="" attributes. The "parent" dom element should be given to the validator.
@@ -46,8 +47,6 @@ This would also be possible:
 
     Required: <input type="text" data-validate="required minlength=4 maxlength=12 numeric" />
     
-<b>dateFormat</b> should only contain "m", "d" and/or "y" for validation. They represent month/day/year.
-
 <h3>CSS</h3>
 
 The only CSS required, is to highlight the fields. This is a simple, but effective example:
