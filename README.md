@@ -40,7 +40,9 @@ The HTML required data-validate="" attributes. The "parent" dom element should b
         Date: <input type="text" data-validate="date" />
     </div>
     
-Of course, any combination is valid. So this would also be possible:
+Of course, any combination is valid. The seperator to be used is a whitespace. 
+
+This would also be possible:
 
     Required: <input type="text" data-validate="required minlength=4 maxlength=12 numeric" />
     
