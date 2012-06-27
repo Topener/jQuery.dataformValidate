@@ -3,10 +3,31 @@ jQuery.dataformValidate
 
 Validate a form based on data-validate html5 attributes.
 
+<i><b>Note</b>: It will validate hidden fields, but <b>dataformValidate().valid</b> will return true if all visible elements are valid
+
+<h3>JavaScript</h3>
+
 Very simple to execute:
 
     $.('.myform').dataformValidate([options])
     
+Simple use in an <b>if statement</b>:
+
+    if (true === $.('.myform').dataformValidate([options]).valid){
+        // do stuff here.
+    }
+    
+Options are optional, and set automatically when given to the validator
+
+    var options = {
+        debug: false, // debug mode
+        hightlightField: true, // do you want to highlight error input fields (ie. add the errorClass)
+        errorClass: 'dataform-validate-error', // provide the class used for styling error input fields
+        dateFormat: 'mdy' // provide in what format the date should be validated on.
+    };
+    
+<h3>HTML</h3>
+
 The HTML required data-validate="" attributes. The "parent" dom element should be given to the validator.
 
     <div class="myform">
@@ -19,13 +40,16 @@ The HTML required data-validate="" attributes. The "parent" dom element should b
         Date: <input type="text" data-validate="date" />
     </div>
     
-Options are optional, and set automatically when given to the validator
 
-    var options = {
-        debug: false, // debug mode
-        hightlightField: true, // do you want to highlight error input fields (ie. add the errorClass)
-        errorClass: 'dataform-validate-error', // provide the class used for styling error input fields
-        dateFormat: 'mdy' // provide in what format the date should be validated on.
-    };
     
 <b>dateFormat</b> should only contain "m", "d" and/or "y" for validation. They represent month/day/year.
+
+<h3>CSS</h3>
+
+The only CSS required, is to highlight the fields. This is a simple, but effective example:
+
+    .dataform-validate-error {
+        background-color: #FAD7D7 !important;
+          color: #858585 !important;
+    	font-weight: bold !important;
+    }
