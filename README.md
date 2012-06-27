@@ -1,7 +1,7 @@
 jQuery.dataformValidate (v0.1)
 =======================
 
-Validate a form based on data-validate html5 attributes.
+Validate a form based on the html5 data attribute `data-validate=""`.
 
 <i><b>Note</b>: It will validate hidden fields, but <b>dataformValidate().valid</b> will return true if all visible elements are valid
 
