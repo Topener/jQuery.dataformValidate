@@ -1,4 +1,4 @@
-jQuery.dataformValidate
+jQuery.dataformValidate (v0.1)
 =======================
 
 Validate a form based on data-validate html5 attributes.
