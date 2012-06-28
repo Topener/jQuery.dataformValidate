@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <meta charset='utf-8' />
+    <meta http-equiv="X-UA-Compatible" content="chrome=1" />
+    <meta name="description" content="jQuery.dataformValidate : Validate a form based on html5 data attributes" />
+
+    <link rel="stylesheet" type="text/css" media="screen" href="stylesheets/stylesheet.css">
+
+    <title>jQuery.dataformValidate</title>
+  </head>
+
+  <body>
+
+    <!-- HEADER -->
+    <div id="header_wrap" class="outer">
+        <header class="inner">
+          <a id="forkme_banner" href="https://github.com/Topener/jQuery.dataformValidate">View on GitHub</a>
+
+          <h1 id="project_title">jQuery.dataformValidate</h1>
+          <h2 id="project_tagline">Validate a form based on html5 data attributes</h2>
+
+            <section id="downloads">
+              <a class="zip_download_link" href="https://github.com/Topener/jQuery.dataformValidate/zipball/master">Download this project as a .zip file</a>
+              <a class="tar_download_link" href="https://github.com/Topener/jQuery.dataformValidate/tarball/master">Download this project as a tar.gz file</a>
+            </section>
+        </header>
+    </div>
+
+    <!-- MAIN CONTENT -->
+    <div id="main_content_wrap" class="outer">
+      <section id="main_content" class="inner">
+        <h1>jQuery.dataformValidate (v0.2)</h1>
+
+<p>Validate a form based on the html5 data attribute <code>data-validate=""</code>.</p>
+
+<p><i><b>Note</b>: It will validate hidden fields, but <b>dataformValidate().valid</b> will return true if all visible elements are valid</i></p>
+
+<h3>JavaScript</h3>
+
+<p>Very simple to execute:</p>
+
+<pre><code>$.('.myform').dataformValidate([options])
+</code></pre>
+
+<p>Simple use in an <b>if statement</b>:</p>
+
+<pre><code>if (true === $.('.myform').dataformValidate(options).valid){
+    // do stuff here.
+}
+</code></pre>
+
+<p>Options are optional, and set automatically when given to the validator</p>
+
+<pre><code>var options = {
+    debug: false, // debug mode
+    hightlightField: true, // do you want to highlight error input fields (ie. add the errorClass)
+    errorClass: 'dataform-validate-error', // provide the class used for styling error input fields
+    dateFormat: 'mdy', // provide in what format the date should be validated on.
+    ignorePlaceholders: true, // whether or not placeholders should be removed before validating
+    placeholderElement: 'placeholder' // this will be prepended with 'data-'. In this case data-placeholder="my default value"
+};
+</code></pre>
+
+<p><b>dateFormat</b> should only contain "m", "d" and/or "y" for validation. They represent month/day/year.    </p>
+
+<h3>HTML</h3>
+
+<p>The HTML required data-validate="" attributes. The "parent" dom element should be given to the validator.</p>
+
+<pre><code>&lt;div class="myform"&gt;
+    Required: &lt;input type="text" data-validate="required" /&gt;
+    Phonenumber: &lt;input type="text" data-validate="phonenumber" /&gt;
+    E-mail address: &lt;input type="text" data-validate="email" /&gt;
+    Minimum 4 character: &lt;input type="text" data-validate="minlength=4" /&gt;
+    Maximum 10 character: &lt;input type="text" data-validate="maxlength=10" /&gt;
+    Numeric: &lt;input type="text" data-validate="numeric" /&gt;
+    Date: &lt;input type="text" data-validate="date" /&gt;
+&lt;/div&gt;
+</code></pre>
+
+<p>Of course, any combination is valid. The seperator to be used is a whitespace. </p>
+
+<p>This would also be possible:</p>
+
+<pre><code>Required: &lt;input type="text" data-validate="required minlength=4 maxlength=12 numeric" /&gt;
+</code></pre>
+
+<h3>CSS</h3>
+
+<p>The only CSS required, is to highlight the fields. This is a simple, but effective example:</p>
+
+<pre><code>.dataform-validate-error {
+    background-color: #FAD7D7 !important;
+      color: #858585 !important;
+    font-weight: bold !important;
+}
+</code></pre>
+      </section>
+    </div>
+
+    <!-- FOOTER  -->
+    <div id="footer_wrap" class="outer">
+      <footer class="inner">
+        <p class="copyright">jQuery.dataformValidate maintained by <a href="https://github.com/Topener">Topener</a></p>
+        <p>Published with <a href="http://pages.github.com">GitHub Pages</a></p>
+      </footer>
+    </div>
+
+    
+
+  </body>
+</html>
