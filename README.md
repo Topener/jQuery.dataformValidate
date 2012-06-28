@@ -23,7 +23,9 @@ Options are optional, and set automatically when given to the validator
         debug: false, // debug mode
         hightlightField: true, // do you want to highlight error input fields (ie. add the errorClass)
         errorClass: 'dataform-validate-error', // provide the class used for styling error input fields
-        dateFormat: 'mdy' // provide in what format the date should be validated on.
+        dateFormat: 'mdy', // provide in what format the date should be validated on.
+        ignorePlaceholders: true, // whether or not placeholders should be removed before validating
+        placeholderElement: 'placeholder' // this will be prepended with 'data-'. In this case data-placeholder="my default value"
     };
     
 <b>dateFormat</b> should only contain "m", "d" and/or "y" for validation. They represent month/day/year.    

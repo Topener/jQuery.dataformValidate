@@ -1,5 +1,9 @@
-/*
+/* 
  * Validator based on data-attributes. Give it the parent dom element.
+ * 
+ * @author Rene Pot <rene@topener.nl>
+ * @link http://topener.github.com/jQuery.dataformValidate/
+ * @version 0.2.0
  */
 
 (function($) {
@@ -10,9 +14,10 @@
         debug: false, // debug mode
         hightlightField: true, // do you want to highlight error input fields (ie. add the errorClass)
         errorClass: 'dataform-validate-error', // provide the class used for styling error input fields
-        dateFormat: 'mdy' // provide in what format the date should be validated on.
+        dateFormat: 'mdy', // provide in what format the date should be validated on.
+        ignorePlaceholders: true, // whether or not placeholders should be removed before validating
+        placeholderElement: 'placeholder' // this will be prepended with 'data-'
     };
-    
     
     $.fn.dataformValidate = function(options){
         
@@ -47,16 +52,23 @@
         dom.find('[data-validate]').each(function(key ,elem){
             
             var validField = true;
+            var val = $(elem).val();
+            var isRequired = false;
+            
             var requirements = $(elem).data('validate').split(' ');
+            
+            if (true === _options.ignorePlaceholders && $(elem).data(_options.placeholderElement) && val == $(elem).data(_options.placeholderElement))
+                val = '';
             
             for (var i = 0, l = requirements.length; i < l; ++i){
                 
                 var requirement = requirements[i].split('=');
-                var val = $(elem).val();
+                
                 
                 switch (requirement[0]){
                     case 'required':
                         validField = true === validField ? _helpers.required(val) : false;
+                        isRequired = true;
                         break;
                     case 'minlength':
                         if (requirement.length == 2)
@@ -82,6 +94,9 @@
                 };
                
             };
+            
+            if (isRequired === false && validField === false && val.length == 0)
+                validField = true;
             
             if (false === validField && true === _options.hightlightField) 
                 $(elem).addClass(_options.errorClass);
