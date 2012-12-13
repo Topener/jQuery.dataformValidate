@@ -86,7 +86,7 @@
                         validField = true === validField ? _helpers.numeric(val) : false;
                         break;
                     case 'date':
-                        validField = true === validField ? _helpers.date(val) : false;
+                        validField = true === validField ? _helpers.date(val, requirement[1] || _options.dateFormat) : false;
                         break;
                     case 'phonenumber':
                     case 'phone': 
@@ -159,10 +159,8 @@
     /*
      * Validate the date based on the _options.dateFormat
      */
-    _helpers.date = function(date){
+    _helpers.date = function(date, dateFormat){
 
-        var dateFormat = _options.dateFormat;
-        
         dateFormat = dateFormat.split('').join("[./-]")
                             .replace('d',"(0?[1-9]|[1|2][0-9]|[3][0|1])")
                             .replace('m',"(0?[1-9]|1[012])")
