@@ -43,6 +43,19 @@ The HTML required data-validate="" attributes. The "parent" dom element should b
         Date: <input type="text" data-validate="date" />
     </div>
     
+Validating mandatory checkbox/radiobutton. Valid if any has been selected
+
+    <div data-validate="required">
+        <input type="radio" name="my_radio" />
+        <input type="radio" name="my_radio" />
+    </div>
+
+    <div data-validate="required">
+        <input type="checkbox" name="my_checkbox[]" />
+        <input type="checkbox" name="my_checkbox[]" />
+    </div>
+
+
 Of course, any combination is valid. The seperator to be used is a whitespace. 
 
 This would also be possible:
