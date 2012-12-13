@@ -34,8 +34,8 @@ Options are optional, and set automatically when given to the validator
 The HTML required data-validate="" attributes. The "parent" dom element should be given to the validator.
 
     <div class="myform">
-        Required: <input type="text" data-validate="required" />
-        Phonenumber: <input type="text" data-validate="phonenumber" />
+        Required: <input type="text" data-validate="required" /> (synonym: mandatory)
+        Phonenumber: <input type="text" data-validate="phonenumber" /> (synonym: phone)
         E-mail address: <input type="text" data-validate="email" />
         Minimum 4 character: <input type="text" data-validate="minlength=4" />
         Maximum 10 character: <input type="text" data-validate="maxlength=10" />
