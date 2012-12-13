@@ -12,7 +12,7 @@
     var _helpers = [];
     
     var _options = {
-        debug: false, // debug mode
+        debug: true, // debug mode
         hightlightField: true, // do you want to highlight error input fields (ie. add the errorClass)
         errorClass: 'dataform-validate-error', // provide the class used for styling error input fields
         dateFormat: 'mdy', // provide in what format the date should be validated on.
@@ -54,6 +54,11 @@
             
             var validField = true;
             var val = $(elem).val();
+            
+            if ($(elem)[0].tagName == 'DIV'){
+                val = $(elem).find('input').is(':checked')
+            }
+            
             var isRequired = false;
             
             var requirements = $(elem).data('validate').split(' ');
@@ -65,9 +70,9 @@
                 
                 var requirement = requirements[i].split('=');
                 
-                
                 switch (requirement[0]){
                     case 'required':
+                    case 'mandatory':
                         validField = true === validField ? _helpers.required(val) : false;
                         isRequired = true;
                         break;
@@ -112,8 +117,8 @@
      * Check if there is at least a value
      */
     _helpers.required = function(value){
-        var test = value.length > 0 ? true : false;
-        _logDisplay('validate required', test);
+        var test = value.length > 0 || value === true ? true : false;
+        _logDisplay('validate required', test, value);
         return test;
     };
     
