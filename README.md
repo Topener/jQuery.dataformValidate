@@ -43,6 +43,10 @@ The HTML required data-validate="" attributes. The "parent" dom element should b
         Date: <input type="text" data-validate="date" />
     </div>
     
+When you want to validate a date differently then the config, add it to the input field:
+
+    Date: <input type="text" data-validate="date=ymd" />
+
 Validating mandatory checkbox/radiobutton. Valid if any has been selected
 
     <div data-validate="required">
